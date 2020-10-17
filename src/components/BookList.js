@@ -6,11 +6,17 @@ import Icon from './common/Icon';
 const BookList = (props) => {
   const { books, activeBook, setActiveBook, dispatch } = useContext(BookContext);
 
-  return books.length ? (
+  return (
     <ul className="booklist">
-      {books.map(book => {
+      {books.map((book, index) => {
+        let setActive;
+        if (activeBook) {
+          setActive = (book.id === activeBook);
+        } else {
+          setActive = (index === 0);
+        }
         return (
-          <li key={book.id} className={`booklist__item ${book.id === activeBook ? 'booklist__item--active' : ''}`} onClick={() => setActiveBook(book.id)}>
+          <li key={book.id} className={`booklist__item ${setActive ? 'booklist__item--active' : ''}`} onClick={() => setActiveBook(book.id)}>
             <div className="booklist__title">
               {book.title}
             </div>
@@ -25,9 +31,7 @@ const BookList = (props) => {
         )
       })}
     </ul>
-  ) : (
-      <div>Super Man book illa</div>
-    )
-}
+  );
+};
 
 export default BookList;
