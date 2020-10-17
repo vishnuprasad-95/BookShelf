@@ -1,15 +1,36 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: #2f2f2f;
 }
 
 * {
   box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+.app {
+  --bg-color: #2f2f2f;
+  --primary-color: #00a1ff;
+  --primary-dark-color: #00639c;
+  --text-light-color: #FFFFFF;
+  --item-bg-color: #7d7d7d;
+  --item-bg-dark-color: #5f5f5f;
+  --primary-light-color: #ccecff;
+  --text-dark-color: #000000;
+  --text-dark-light-color: #7d7d7d;
+  
+  background: var(--bg-color);
+}
+
+.app--light {
+  --bg-color: #e0e0e0;
+  --primary-color: #00a1ff;
+  --primary-dark-color: #00639c;
+  --text-light-color: #000000;
+  --item-bg-color: #ffffff;
+  --item-bg-dark-color: #a5a5a5;
+  --primary-light-color: #ccecff;
+  --text-dark-color: #ffffff;
+  --text-dark-light-color: #7d7d7d;
 }
 
 ul {
@@ -30,7 +51,7 @@ ul {
 
 .navbar {
   height: 60px;
-  background: #00a1ff;
+  background: var(--primary-color);
   position: fixed;
   top: 0;
   left: 0;
@@ -53,7 +74,7 @@ ul {
   top: 0;
   right: 0;
   height: 60px;
-  background-color: #00639c;
+  background-color: var(--primary-dark-color);
   text-align: center;
   width: 60px;
   line-height: 60px;
@@ -73,7 +94,7 @@ ul {
 
 .booklist__item {
   padding: 12px 20px;
-  background: #7d7d7d;
+  background: var(--item-bg-color);
   border-radius: 4px;
   margin-bottom: 15px;
   cursor: pointer;
@@ -83,21 +104,21 @@ ul {
 }
 
 .booklist__title {
-  color: white;
+  color: var(--text-light-color);
   font-size: 18px;
   flex: 1;
 }
 
 .booklist__item:hover {
-  background: #5f5f5f;
+  background: var(--item-bg-dark-color);
 }
 
 .booklist__item--active {
-  background: #00a1ff;
+  background: var(--primary-color);
 }
 
 .booklist__item--active:hover {
-  background: #0182ce;
+  background: var(--primary-dark-color);
 }
 
 .booklist__button {
@@ -123,7 +144,7 @@ ul {
   padding: 12px 20px;
   margin: 24px 32px;
   flex: 1;
-  background: #ccecff;
+  background: var(--primary-light-color);
   border-radius: 4px;
   text-align: center;
   display: flex;
@@ -141,7 +162,7 @@ ul {
 
 .book-detail__author {
   font-size: 18px;
-  color: grey;
+  color: var(--text-dark-light-color);
 }
 
 .add-from {
@@ -149,12 +170,12 @@ ul {
   padding: 12px 20px;
   margin:  0 32px 24px;
   flex: 1;
-  background: #7d7d7d;
+  background: var(--item-bg-color);
   border-radius: 4px;
 }
 
 .add-form__head {
-  color: white;
+  color: var(--text-light-color);
   font-weight: bold;
   font-size: 20px;
   margin: 0 0 12px 0;
@@ -162,30 +183,26 @@ ul {
 
 .add-from__wrapper {
   width: 100%;
-  /* display: flex;
-  flex-direction: row; */
 }
 
 .add-from__input {
   display: block;
   width: 100%;
   background: transparent;
-  color: white;
+  color: var(--text-light-color);
   outline: none;
-  border: 1px solid white;
+  border: 1px solid var(--text-light-color);
   border-radius: 4px;
   padding: 8px 12px;
   transition: 0.3s;
 }
 
 .add-from__input:hover {
-  border-color: #00a1ff;
+  border-color: var(--primary-color);
 }
 
 .add-from__input:focus {
-  outline: 2px solid #00a1ff;
-  outline-offset: 2px;
-  outline-style: dotted;
+  border-color: var(--primary-color);
 }
 
 .add-form__group {
@@ -196,13 +213,13 @@ ul {
 
 .add-from__label {
   font-size: 14px;
-  color: white;
+  color: var(--text-light-color);
   width: 100px;
 }
 
 .add-from__button {
-  background: #00a1ff;
-  color: white;
+  background: var(--primary-color);
+  color: var(--text-light-color);
   text-transform: uppercase;
   size: 16px;
   font-weight: bold;
@@ -213,14 +230,66 @@ ul {
   float: right;
   cursor: pointer;
   transition: 0.3s;
+  outline: none;
 }
 
 .add-from__button:hover {
-  background: #0182ce;
+  background: var(--primary-dark-color);
 }
 
-.add-from__button:focus {
-  outline: 2px solid #00a1ff;
-  outline-offset: 2px;
-  outline-style: dotted;
+/* Switch */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
 }
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 2px;
+  background-color: var(--primary-color);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--primary-light-color);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--primary-color);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(20px);
+  -ms-transform: translateX(20px);
+  transform: translateX(20px);
+}
+
+/* Switch */

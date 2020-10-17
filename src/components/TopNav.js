@@ -7,6 +7,10 @@ const TopNav = () => {
   return (
     <div className="navbar">
       <h1 className="navbar__header">Boooks</h1>
+      <label className="switch" style={{right: 60}}>
+        <input type="checkbox" checked />
+        <span className="slider"></span>
+      </label>
       <p className="navbar__counter">{books.length}</p>
     </div>
   );
