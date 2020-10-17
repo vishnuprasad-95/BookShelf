@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { BookContext } from '../contexts/BookContext';
+import constants from '../constants/bookList';
 import Icon from './common/Icon';
 
 const BookList = (props) => {
-  const { books, activeBook, setActiveBook, removeBook } = useContext(BookContext);
+  const { books, activeBook, setActiveBook, dispatch } = useContext(BookContext);
 
   return books.length ? (
     <ul className="booklist">
@@ -14,7 +15,8 @@ const BookList = (props) => {
               {book.title}
             </div>
             <button className="booklist__button" onClick={(e) => {
-              removeBook(book.id)
+              const deleteBookId = (activeBook === book.id) ? null : activeBook;
+              dispatch({ type: constants.REMOVE_BOOK, id: book.id });
               e.stopPropagation();
             }}>
               <Icon name="delete" size="16px" color="white" />

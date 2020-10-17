@@ -1,9 +1,14 @@
 import { v4 as uuid } from 'uuid';
 import constants from '../constants/bookList';
 
-export const bookReducer = (state, action) => {
+export const initialState = [
+  { title: 'Hello', author: 'test', id: 1 },
+];
+
+export const bookReducer = (state = initialState, action) => {
   switch (action.type){
     case constants.ADD_BOOK:
+      console.log(action);
       return [
         ...state,
         {
@@ -14,6 +19,8 @@ export const bookReducer = (state, action) => {
       ]
     case constants.REMOVE_BOOK:
       return state.filter(book => book.id !== action.id);
+    case constants.SET_ACTIVE_BOOK:
+      return action.id;
     default:
       return state;
   }
