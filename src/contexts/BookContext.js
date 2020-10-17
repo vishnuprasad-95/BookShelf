@@ -13,7 +13,7 @@ const initialState = [
 const BookContextProvider = (props) => {
   const [books, setBooks] = useState(initialState);
 
-  const [activeBook, setActiveBook] = useState(books[0].id);
+  const [activeBook, setActiveBook] = useState(null);
 
   const addBook = (title, author) => {
     setBooks([ ...books, {
@@ -22,6 +22,9 @@ const BookContextProvider = (props) => {
   };
 
   const removeBook = (id) => {
+    if(activeBook === id) {
+      setActiveBook(null);
+    }
     setBooks(books.filter(book => book.id !== id));
   };
 

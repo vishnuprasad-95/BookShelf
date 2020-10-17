@@ -7,8 +7,18 @@ const BookDetails = () => {
   const currentBook = books.find(book => book.id === activeBook);
 
   return (
-    <div className="bookdetail">
-      {currentBook.title}
+    <div className="book-detail">
+      { currentBook
+        ? <>
+          <div className="book-detail__title">
+            {currentBook.title}
+          </div>
+          <div className="book-detail__author">
+            {currentBook.author}
+          </div>
+        </>
+        : <div className="book-detail__no-book">No book selected</div>
+      }
     </div>
   );
 }

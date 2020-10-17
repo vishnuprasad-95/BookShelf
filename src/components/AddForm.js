@@ -16,7 +16,7 @@ const AddForm = () => {
   
   return (
     <div className="add-from">
-      <h2 className="add-form__head">Add ne book</h2>
+      <h2 className="add-form__head">Add new book</h2>
       <form onSubmit={onSubmitHandler} className="add-from__wrapper">
         <div className="add-form__group">
         <label className="add-from__label" htmlFor="title">Book Title</label>
