@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #525252;
+  background: #2f2f2f;
 }
 
 * {
@@ -17,12 +17,24 @@ ul {
 }
 
 .container {
+  margin-top: 60px;
+  height: calc(100vh - 60px);
   display: flex;
+}
+
+.container__right {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .navbar {
   height: 60px;
-  background: papayawhip;
+  background: #00a1ff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   padding: 0 20px;
   align-items: center;
@@ -31,29 +43,141 @@ ul {
 .navbar__header {
   flex: 1;
   margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.navbar__counter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 60px;
+  background-color: #00639c;
+  text-align: center;
+  width: 60px;
+  line-height: 60px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  margin: 0;
 }
 
 .booklist {
   list-style: none;
   padding: 24px 32px;
   flex: 1;
+  height: 100%;
+  overflow: scroll;
 }
 
 .booklist__item {
   padding: 12px 20px;
-  background: #b3a385;
+  background: #7d7d7d;
+  color: white;
   border-radius: 4px;
   margin-bottom: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.booklist__item:hover {
+  background: #5f5f5f;
 }
 
 .booklist__item--active {
-  background: #bb892c;
+  background: #00a1ff;
+}
+
+.booklist__item--active:hover {
+  background: #0182ce;
 }
 
 .bookdetail {
   padding: 12px 20px;
   margin: 24px 32px;
   flex: 1;
-  height: 200px;
-  background: #c36a6a;
+  background: #ccecff;
+  border-radius: 4px;
+}
+
+.add-from {
+  flex: 1;
+  padding: 12px 20px;
+  margin:  0 32px 24px;
+  flex: 1;
+  background: #7d7d7d;
+  border-radius: 4px;
+}
+
+.add-form__head {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0 0 12px 0;
+}
+
+.add-from__wrapper {
+  width: 100%;
+  /* display: flex;
+  flex-direction: row; */
+}
+
+.add-from__input {
+  display: block;
+  width: 100%;
+  background: transparent;
+  color: white;
+  outline: none;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 8px 12px;
+  transition: 0.3s;
+}
+
+.add-from__input:hover {
+  border-color: #00a1ff;
+}
+
+.add-from__input:focus {
+  outline: 2px solid #00a1ff;
+  outline-offset: 2px;
+  outline-style: dotted;
+}
+
+.add-form__group {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.add-from__label {
+  font-size: 14px;
+  color: white;
+  width: 100px;
+}
+
+.add-from__button {
+  background: #00a1ff;
+  color: white;
+  text-transform: uppercase;
+  size: 16px;
+  font-weight: bold;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-top: 12px;
+  float: right;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-from__button:hover {
+  background: #0182ce;
+}
+
+.add-from__button:focus {
+  outline: 2px solid #00a1ff;
+  outline-offset: 2px;
+  outline-style: dotted;
 }

@@ -15,11 +15,18 @@ const AddForm = () => {
   };
   
   return (
-    <div>
-      <form onSubmit={onSubmitHandler}>
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
-        <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)}/>
-        <input type="submit"></input>
+    <div className="add-from">
+      <h2 className="add-form__head">Add ne book</h2>
+      <form onSubmit={onSubmitHandler} className="add-from__wrapper">
+        <div className="add-form__group">
+        <label className="add-from__label" htmlFor="title">Book Title</label>
+        <input className="add-from__input" id="title" type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
+        </div>
+        <div  className="add-form__group">
+          <label className="add-from__label" htmlFor="author">Author</label>
+          <input className="add-from__input" id="author" type="text" value={author} onChange={(e) => setAuthor(e.target.value)}/>
+        </div>
+        <input className="add-from__button" type="submit"></input>
       </form>
     </div>
   );

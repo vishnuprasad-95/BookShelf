@@ -12,9 +12,11 @@ const App = () => {
         <TopNav />
         <div className="container">
           <BookList />
-          <BookDetails />
+          <div className="container__right">
+            <BookDetails />
+            <AddForm/>
+          </div>
         </div>
-          <AddForm/>
       </div>
     </BookContextProvider>
   );
