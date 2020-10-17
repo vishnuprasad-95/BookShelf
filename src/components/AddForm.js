@@ -8,6 +8,7 @@ const AddForm = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
+    if(!title || !author) return;
     addBook(title, author);
     setTitle('');
     setAuthor('');
