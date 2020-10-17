@@ -10,10 +10,7 @@ const BookContextProvider = (props) => {
     return localData ? utilsHelper.getParseData(localData): initialState;
   });
 
-  const [activeBook, setActiveBook] = useState(1);
-  // useEffect(() => {
-  //   dispatch({ type: constants.SET_ACTIVE_BOOK, id: null })
-  // }, []);
+  const [activeBook, setActiveBook] = useState(null);
 
   useEffect(() => {
     localStorage.setItem('books', utilsHelper.getStringifyData(books));
