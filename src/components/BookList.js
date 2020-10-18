@@ -21,7 +21,6 @@ const BookList = (props) => {
               {book.title}
             </div>
             <button className="booklist__button" onClick={(e) => {
-              const deleteBookId = (activeBook === book.id) ? null : activeBook;
               dispatch({ type: constants.REMOVE_BOOK, id: book.id });
               e.stopPropagation();
             }}>

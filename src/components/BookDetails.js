@@ -6,7 +6,7 @@ import EditBook from './EditBook';
 const BookDetails = () => {
   const { books, activeBook } = useContext(BookContext);
 
-  const currentBook = books.find(book => book.id === activeBook);
+  const currentBook = activeBook ? books.find(book => book.id === activeBook ) : books[0];
   const [edit, setEdit] = useState(null);
 
   const updateEdit = (edit) => {
