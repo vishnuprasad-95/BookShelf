@@ -1,5 +1,6 @@
 export default {
   ADD_BOOK: 'Book/ADD_BOOK',
   REMOVE_BOOK: 'Book/REMOVE_BOOK',
+  EDIT_BOOK: 'Book/EDIT_BOOK',
   SET_ACTIVE_BOOK: 'Book/SET_ACTIVE_BOOK',
 }

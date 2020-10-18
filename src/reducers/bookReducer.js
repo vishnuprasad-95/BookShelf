@@ -6,9 +6,8 @@ export const initialState = [
 ];
 
 export const bookReducer = (state = initialState, action) => {
-  switch (action.type){
+  switch (action.type) {
     case constants.ADD_BOOK:
-      console.log(action);
       return [
         ...state,
         {
@@ -19,6 +18,15 @@ export const bookReducer = (state = initialState, action) => {
       ]
     case constants.REMOVE_BOOK:
       return state.filter(book => book.id !== action.id);
+    case constants.EDIT_BOOK:
+      return [
+        ...state.filter(book => book.id !== action.book.id),
+        {
+          title: action.book.title,
+          author: action.book.author,
+          id: action.book.id,
+        }
+      ]
     case constants.SET_ACTIVE_BOOK:
       return action.id;
     default:
