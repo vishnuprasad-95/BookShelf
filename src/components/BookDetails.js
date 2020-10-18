@@ -1,13 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { BookContext } from '../contexts/BookContext';
+import Icon from './common/Icon';
+import EditBook from './EditBook';
 
 const BookDetails = () => {
   const { books, activeBook } = useContext(BookContext);
 
   const currentBook = books.find(book => book.id === activeBook);
+  const [edit, setEdit] = useState(null);
 
+  const updateEdit = (edit) => {
+    setEdit(edit);
+  }
+
+  if (edit) {
+    return (
+      <EditBook updateEdit={updateEdit} />
+    );
+  }
   return (
     <div className="book-detail">
+      <button className="book-detail__button " onClick={(e) => {
+        updateEdit(activeBook);
+      }}>
+        <Icon name="edit" size="20px" color="black" />
+      </button>
       { currentBook
         ? <>
           <div className="book-detail__title">

@@ -165,6 +165,23 @@ ul {
   color: var(--text-dark-light-color);
 }
 
+.book-detail__button{
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  top: 90px;
+  right: 30px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+ position: absolute;
+  align-items: right;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
 .add-from {
   flex: 1;
   padding: 12px 20px;
@@ -234,6 +251,83 @@ ul {
 }
 
 .add-from__button:hover {
+  background: var(--primary-dark-color);
+}
+
+.edit-form {
+  padding: 12px 20px;
+  margin: 24px 32px;
+  flex: 1;
+  border-radius: 4px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--item-bg-color);
+  border-radius: 4px;
+}
+
+.edit-form__head {
+  color: var(--text-light-color);
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0 0 12px 0;
+}
+
+.edit-from__wrapper {
+  width: 100%;
+}
+
+.edit-from__input {
+  display: block;
+  width: 100%;
+  background: transparent;
+  color: var(--text-light-color);
+  outline: none;
+  border: 1px solid var(--text-light-color);
+  border-radius: 4px;
+  padding: 8px 12px;
+  transition: 0.3s;
+}
+
+.edit-from__input:hover {
+  border-color: var(--primary-color);
+}
+
+.edit-from__input:focus {
+  border-color: var(--primary-color);
+}
+
+.edit-form__group {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.edit-from__label {
+  font-size: 14px;
+  color: var(--text-light-color);
+  width: 100px;
+}
+
+.edit-from__button {
+  background: var(--primary-color);
+  color: var(--text-light-color);
+  text-transform: uppercase;
+  size: 16px;
+  font-weight: bold;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-top: 12px;
+  float: right;
+  cursor: pointer;
+  transition: 0.3s;
+  outline: none;
+}
+
+.edit-from__button:hover {
   background: var(--primary-dark-color);
 }
 
