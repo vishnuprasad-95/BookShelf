@@ -11,7 +11,7 @@ const App = () => {
 
   return (
     <BookContextProvider>
-      <div className={theme.isLightTheme ? "app--light" : "app"}>
+      <div className={theme.isLightTheme ? "app app--light" : "app"}>
         <TopNav />
         <div className="container">
           <BookList />
