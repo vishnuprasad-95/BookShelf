@@ -6,7 +6,7 @@ const EditForm = ({
     updateEdit
 }) => {
     const { dispatch, books, activeBook } = useContext(BookContext);
-    const currentBook = books.find(book => book.id === activeBook);
+    const currentBook = activeBook ? books.find(book => book.id === activeBook ) : books[0];
     const [title, setTitle] = useState(currentBook.title);
     const [author, setAuthor] = useState(currentBook.author);
 
@@ -17,7 +17,7 @@ const EditForm = ({
         dispatch({
             type: constants.EDIT_BOOK,
             book: {
-                title, author, id: activeBook
+                title, author, id: currentBook.id
             }
         })
         updateEdit(null);
