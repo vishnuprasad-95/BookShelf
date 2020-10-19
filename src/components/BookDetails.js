@@ -7,6 +7,7 @@ const BookDetails = () => {
   const { books, activeBook } = useContext(BookContext);
 
   const currentBook = activeBook ? books.find(book => book.id === activeBook ) : books[0];
+  console.log("BookDetails -> currentBook", currentBook.id)
   const [edit, setEdit] = useState(null);
 
   const updateEdit = (edit) => {
@@ -21,7 +22,7 @@ const BookDetails = () => {
   return (
     <div className="book-detail">
       <button className="book-detail__button " onClick={(e) => {
-        updateEdit(activeBook);
+        updateEdit(currentBook.id);
       }}>
         <Icon name="edit" size="20px" color="black" />
       </button>
