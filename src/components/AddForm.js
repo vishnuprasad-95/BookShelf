@@ -10,7 +10,6 @@ const AddForm = () => {
   const onSubmitHandler = (e) => {
     e.preventDefault();
     if(!title || !author) return;
-    // addBook(title, author);
     dispatch({ type: constants.ADD_BOOK,
       book: {
         title, author
