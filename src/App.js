@@ -4,21 +4,25 @@ import BookList from './components/BookList';
 import AddForm from './components/AddForm';
 import TopNav from './components/TopNav';
 import BookContextProvider from './contexts/BookContext';
+import { ThemeProvider } from 'styled-components';
+import { getTheme } from './constants/themes';
 
 const App = () => {
   return (
-    <BookContextProvider>
-      <div className="app">
-        <TopNav />
-        <div className="container">
-          <BookList />
-          <div className="container__right">
-            <BookDetails />
-            <AddForm/>
+    <ThemeProvider theme={getTheme()}>
+      <BookContextProvider>
+        <div className="app">
+          <TopNav />
+          <div className="container">
+            <BookList />
+            <div className="container__right">
+              <BookDetails />
+              <AddForm />
+            </div>
           </div>
         </div>
-      </div>
-    </BookContextProvider>
+      </BookContextProvider>
+    </ThemeProvider>
   );
 }
 
