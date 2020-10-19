@@ -7,7 +7,6 @@ const BookDetails = () => {
   const { books, activeBook } = useContext(BookContext);
 
   const currentBook = activeBook ? books.find(book => book.id === activeBook ) : books[0];
-  console.log("BookDetails -> currentBook", currentBook.id)
   const [edit, setEdit] = useState(null);
 
   const updateEdit = (edit) => {

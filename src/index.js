@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import ThemeContextProvider from './contexts/ThemeContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App className="app"/>
+    <ThemeContextProvider>
+      <App className="app"/>
+    </ThemeContextProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
