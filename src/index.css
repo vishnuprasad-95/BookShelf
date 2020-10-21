@@ -234,6 +234,15 @@ ul {
   width: 100px;
 }
 
+.add-from__cancel {
+  font-size: 14px;
+  color: var(--text-light-color);
+  width: 100px;
+  position:relative;
+  top:17px;
+  left:30px
+}
+
 .add-from__button {
   background: var(--primary-color);
   color: var(--text-light-color);

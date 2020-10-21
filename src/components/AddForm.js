@@ -71,7 +71,7 @@ const AddForm = () => {
           />
         </div>
         {editBook.edit &&
-          <label className="add-from__label"
+          <label className="add-from__cancel"
             onClick={() => {
               setEditBook({
                 edit: false,
