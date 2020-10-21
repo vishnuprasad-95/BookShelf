@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState } from 'react';
 import { BookContext } from '../contexts/BookContext';
 import constants from '../constants/bookList';
 
@@ -7,12 +7,19 @@ const AddForm = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
 
-  useEffect(() => {
+  const handleChange = (field, value) => {
+    let book = { ...editBook };
+    book.editBook[field] = value;
     if (editBook.edit) {
-      setTitle(editBook.editBook.title);
-      setAuthor(editBook.editBook.author);
+      const { title, author } = book.editBook;
+      setEditBook(book);
+      setTitle(title);
+      setAuthor(author);
+    } else {
+      field === 'title' ?
+        setTitle(value) : setAuthor(value);
     }
-  }, []);
+  }
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
@@ -24,14 +31,6 @@ const AddForm = () => {
           title, author, id: editBook.editBook.id
         }
       });
-      setEditBook({
-        edit: false,
-        editBook: {
-          title: '',
-          author: '',
-          id: null
-        }
-      });
     } else {
       dispatch({
         type: constants.ADD_BOOK,
@@ -40,6 +39,14 @@ const AddForm = () => {
         }
       })
     }
+    setEditBook({
+      edit: false,
+      editBook: {
+        title: '',
+        author: '',
+        id: null
+      }
+    });
     setTitle('');
     setAuthor('');
   };
@@ -52,15 +59,15 @@ const AddForm = () => {
         <div className="add-form__group">
           <label className="add-from__label" htmlFor="title">Book Title</label>
           <input className="add-from__input" id="title" type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={title || editBook.editBook.title}
+            onChange={(e) => handleChange('title', e.target.value)}
           />
         </div>
         <div className="add-form__group">
           <label className="add-from__label" htmlFor="author">Author</label>
           <input className="add-from__input" id="author" type="text"
-            value={author}
-            onChange={(e) => setAuthor(e.target.value)}
+            value={author || editBook.editBook.author}
+            onChange={(e) => handleChange('author', e.target.value)}
           />
         </div>
         {editBook.edit &&
