@@ -50,10 +50,29 @@ const DeleteIcon = styled.button`
     background: rgba(0, 0, 0, .1);
   }
 `
+const EditIcon = styled.button`
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    background: rgba(0, 0, 0, .1);
+  }
+`
 
 const List = ({
   list,
   onDeleteClick,
+  onEditClick,
   onClick,
   activeItemId,
   ...otherProps
@@ -63,6 +82,20 @@ const List = ({
       {
         list.map((item) => <ListItem isActive={activeItemId === item.id} key={item.id} onClick={() => onClick(item)} {...otherProps}>
           <ListTitle>{item.title}</ListTitle>
+
+          <EditIcon onClick={(e) => {
+            onEditClick({
+              edit: true,
+              editBook: {
+                title: item.title,
+                author: item.author,
+                id: item.id
+              }
+            });
+            e.stopPropagation();
+          }}>
+            <Icon name="edit" size="16px" color="white" />
+          </EditIcon>
           <DeleteIcon onClick={(e) => {
             onDeleteClick(item);
             e.stopPropagation();

@@ -7,17 +7,18 @@ export const BookContext = createContext();
 const BookContextProvider = (props) => {
   const [books, dispatch] = useReducer(bookReducer, [], () => {
     const localData = localStorage.getItem('books');
-    return localData ? utilsHelper.getParseData(localData): initialState;
+    return localData ? utilsHelper.getParseData(localData) : initialState;
   });
 
   const [activeBook, setActiveBook] = useState(null);
+  const [editBook, setEditBook] = useState({ edit: false, editBook: { title: '', author: '', id: null } });
 
   useEffect(() => {
     localStorage.setItem('books', utilsHelper.getStringifyData(books));
   }, [books]);
 
-  return(
-    <BookContext.Provider value={{books, activeBook, setActiveBook, dispatch}}>
+  return (
+    <BookContext.Provider value={{ books, activeBook, editBook, setActiveBook, setEditBook, dispatch }}>
       {props.children}
     </BookContext.Provider>
   )
