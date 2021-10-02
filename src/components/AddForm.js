@@ -20,7 +20,7 @@ const AddForm = () => {
         setTitle(value) : setAuthor(value);
     }
   }
-
+  
   const onSubmitHandler = (e) => {
     e.preventDefault();
     if (!title || !author) return;
