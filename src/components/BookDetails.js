@@ -3,7 +3,7 @@ import { BookContext } from '../contexts/BookContext';
 import Icon from './common/Icon';
 import EditBook from './EditBook';
 
-const BookDetails = (props) => {
+const BookDetails = () => {
   const { books, activeBook } = useContext(BookContext);
 
   const currentBook = activeBook ? books.find(book => book.id === activeBook) : books[0];
