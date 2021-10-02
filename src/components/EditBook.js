@@ -9,7 +9,6 @@ const EditForm = ({
     const currentBook = activeBook ? books.find(book => book.id === activeBook ) : books[0];
     const [title, setTitle] = useState(currentBook.title);
     const [author, setAuthor] = useState(currentBook.author);
-
     const onSubmitHandler = (e) => {
         e.preventDefault();
         if (!title || !author) return;
@@ -22,7 +21,6 @@ const EditForm = ({
         })
         updateEdit(null);
     };
-
     return (
         <div className="edit-form">
             <h2 className="edit-form__head">{currentBook.title}</h2>
