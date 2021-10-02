@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { BookContext } from '../contexts/BookContext';
 import constants from '../constants/bookList';
 
-const AddForm = () => {
+const AddForm = (props) => {
   const { dispatch, editBook, setEditBook } = useContext(BookContext);
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
