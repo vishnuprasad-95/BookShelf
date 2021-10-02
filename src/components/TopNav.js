@@ -3,7 +3,7 @@ import { BookContext } from '../contexts/BookContext';
 import { ThemeContext } from '../contexts/ThemeContext';
 import constants from '../constants/theme';
 
-const TopNav = () => {
+const TopNav = (props) => {
   const { books } = useContext(BookContext);
   const { theme, dispatch } = useContext(ThemeContext);
 
