@@ -8,7 +8,7 @@ import { ThemeProvider } from 'styled-components';
 import { getTheme } from './constants/themes';
 import { ThemeContext } from './contexts/ThemeContext';
 
-const App = () => {
+const App = (props) => {
   const { theme } = useContext(ThemeContext);
 
   return (
